@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     public class ProcessInBackground extends AsyncTask<Integer, Void, Exception>
     {
-        ProgressDialog progressDialog = new ProcessInBackground(MainActivity.this)
+        ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
 
         Exception exception = null;
 
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
             try
             {
-                URL url = new URL("http://feeds.news24.com/articles/news24/TopStories/rss");
+                URL url = new URL("https://search.nejm.org/search?cnt=20&start_month=2&start_year=2009&w=*&restrict=doctype%3Aarticle&srt=0&isort=date&ts=rss&af=topic:14");
 
                 XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
 
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
             }
             catch (XmlPullParserException e)
             {
-                exception e;
+                exception = e;
             }
             catch (IOException e)
             {
